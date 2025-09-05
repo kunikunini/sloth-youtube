@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sloth YouTube Gallery</title>
+    <meta name="description" content="slothキャラクターが登場するYouTube動画を一覧表示" />
+    <meta name="theme-color" content="#f2c14e" />
+    <link id="site-favicon" rel="icon" type="image/png" href="./SWC_youtube_project/kuni_2.png" />
+    <!-- Optional: fonts (browserが取得) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700;800&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="brand">
+        <img class="brand-logo" src="./SWC_youtube_project/sloth_logo.svg" alt="SLOTH" />
+      </div>
+
+      <div class="slider" id="character-slider" aria-label="登場キャラクター">
+        <div class="slider-inner">
+          <div class="slider-track" id="slider-track"></div>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <div id="top"></div>
+      <h1 class="page-title">あなたのslothがYouTubeデビュー！？</h1>
+      <div id="channel-hero"></div>
+
+      <section class="gallery" id="gallery" aria-live="polite">
+        <div class="loading">読み込み中...</div>
+      </section>
+
+      <section class="embed" id="sloth-embed">
+        <h2 class="embed-title">sloth公式サイト</h2>
+        <div class="embed-cta">
+          <a class="buy-cta" href="https://sloth-nft.life/" target="_blank" rel="noopener">slothはここから買えるよ⬇︎</a>
+        </div>
+        <div class="embed-frame-wrap">
+          <iframe class="embed-frame" src="https://sloth-nft.life/" title="sloth公式サイト" loading="lazy"></iframe>
+        </div>
+      </section>
+
+      <section class="project" id="project-info">
+        <h2 class="project-title">【企画内容説明】あなたのslothがYouTubeに登場！？企画</h2>
+
+        <p>あなたの大好きなslothをYouTube「けんすうチャンネル」に出演させてみませんか？<br>
+        こんにちは！僕は、けんすうさんの公式YouTubeの動画編集チームのメンバーです。</p>
+
+        <p>編集をしていて、みんなのslothも登場させれたら楽しいかも！と思い立ち、企画させて頂きました。<br>
+        （運営さんからの許可はもらっています）</p>
+
+        <h3>■ 企画内容</h3>
+        <p>NFTのslothをお持ちの方限定にはなってしまいますが、<br>
+        自分のslothをYouTubeの動画素材として使ってもいいよ！という方をこの投稿のコメント欄で随時募集するというシンプルな企画です。</p>
+        <p>こちらのYouTube切り抜きショート動画の素材として、応募があったslothを編集者の気分や動画の内容に合わせてランダムに選び、素材として使用させて頂きます。<br>
+        ＊応募したけど編集者に選ばれないという場合もあるのでご了承ください。<br>
+        動画に登場するイメージは、この投稿のコメント欄に貼っておきますので、興味がある方はご確認ください（左下にさりげなく登場させています）。</p>
+        <p>＊あくまでも「けんすうスピーク」の内容がメイン（主役）となるため、一部の素材（脇役）という位置づけになることはご了承ください。</p>
+
+        <h3>■ 募集期間</h3>
+        <p>・随時募集（基本的にはYouTubeチャンネルの運用が終わるまで）</p>
+
+        <h3>■ 参加方法</h3>
+        <p>あなたが所持しているslothをけんすうさんのYouTubeに出演させたい！と思ったら、管理人（くに）のXアカウントのDMからご連絡ください。出演料はもちろん無料！slothのホルダーさん特典の一つとして企画しています（締め切りになったらごめんなさい）。<br>
+        <a href="https://twitter.com/kunikuni0843" target="_blank" rel="noopener">https://twitter.com/kunikuni0843</a></p>
+        <p>使用できるslothか確認が取れ次第、動画編集者に共有します。<br>
+        提出いただくsloth画像は、動画内で使用するため、できれば背景透過の画像が望ましいです。（わからない場合はこちらで透過できますのでご安心ください）</p>
+
+        <h3>＊ 注意点</h3>
+        <ul>
+          <li>オリジナルのslothのみとさせて頂きます。規約上、コラボslothやクリエイターさんの作品はNGとしています。（例えばプペルslothなど）</li>
+          <li>画像を提供いただいた段階で動画内に使用を許可したこととします。</li>
+          <li>あなたのsloth画像は動画編集以外の用途では使用しません（このサイトに掲載はさせて頂きます）。</li>
+          <li>アイテムは公式のオリジナルであればOKです。「このslothはどうなの？」など質問がある場合は、遠慮なくご相談ください。</li>
+        </ul>
+
+        <p>大好きなslothをけんすうさんのYouTubeチャンネルとともに羽ばたかせましょうｗ<br>
+        きっと自分の子供が巣立っていくような気持ちになるはず！</p>
+
+        <p>この企画を通して、slothを購入したら「YouTubeデビューできるかも！」という一つのユーティリティ（特典）にできたら良いなとも思っております。<br>
+        それでは、たくさんのご参加お待ちしております！！</p>
+
+        <p>YouTube「けんすうチャンネル」および「けんすうスピーク」の応援もよろしくお願いします🙇</p>
+      </section>
+    </main>
+
+    <!-- Modal Player / Character Playlist -->
+    <div class="modal" id="player-modal" aria-hidden="true" role="dialog" aria-label="動画プレイヤー">
+      <div class="modal-backdrop" data-close></div>
+      <div class="modal-dialog" role="document" aria-modal="true">
+        <button class="modal-close" id="modal-close" aria-label="閉じる">×</button>
+        <div class="player-wrap">
+          <iframe id="player-frame" title="YouTube video player" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+        <div class="playlist" id="playlist" aria-label="キャラクターの動画一覧"></div>
+      </div>
+    </div>
+
+    <!-- Optional legacy data fallback -->
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+
+    <!-- Back to top button -->
+    <button id="back-to-top" aria-label="トップに戻る">▲</button>
+
+    <!-- Hamburger menu button and panel -->
+    <button id="hamburger" aria-label="メニュー" aria-expanded="false" aria-controls="menu-panel">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+    <div id="menu-backdrop" class="menu-backdrop" hidden></div>
+    <nav id="menu-panel" class="menu-panel" aria-hidden="true">
+      <a href="#top" data-scroll><span>トップページ</span></a>
+      <a href="#gallery" data-scroll><span>出演sloth一覧</span></a>
+      <a href="#sloth-embed" data-scroll><span>sloth公式サイト</span></a>
+      <a href="#project-info" data-scroll><span>企画詳細とお問い合わせ先</span></a>
+    </nav>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <nav class="footer-nav">
+          <a href="#top" data-scroll>トップページ</a>
+          <a href="#gallery" data-scroll>出演sloth一覧</a>
+          <a href="#sloth-embed" data-scroll>sloth公式サイト</a>
+          <a href="#project-info" data-scroll>企画詳細とお問い合わせ先</a>
+        </nav>
+        <div class="copy">© SLOTH</div>
+      </div>
+    </footer>
+  </body>
+  </html>

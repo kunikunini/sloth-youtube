@@ -1,0 +1,7 @@
+# Local data files (manual ops)
+SWC_youtube_project/videos.csv
+
+# Optional credentials (not used in CSV flow, but keep private if present)
+SWC_youtube_project/service-account.json
+SWC_youtube_project/sheets.sa.json
+

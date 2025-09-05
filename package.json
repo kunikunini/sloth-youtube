@@ -1,0 +1,10 @@
+{
+  "name": "sloth-youtube",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:manifest": "node scripts/build-manifest.mjs",
+    "dev:manifest": "node scripts/watch-manifest.mjs",
+    "csv:normalize": "node scripts/normalize-sheet-csv.mjs && node scripts/build-manifest.mjs"
+  }
+}
