@@ -25,6 +25,9 @@ jobs:
         with:
           node-version: '18'
 
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
       - name: Install (no deps required; fallback to npm i)
         run: npm ci || npm i
 
@@ -51,4 +54,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
