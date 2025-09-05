@@ -215,7 +215,8 @@ export async function buildManifest() {
       /background_yonewaits_3_5/i,
       /^background/i,
       /^sloth_logo/i,
-      /footer_img/i
+      /footer_img/i,
+      /icon_burger/i
     ];
     const images = entries
       .filter((e) => e.isFile() && IMAGE_EXTS.has(path.extname(e.name).toLowerCase()))

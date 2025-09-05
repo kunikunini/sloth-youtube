@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2025-09-05T17:02:32.630Z",
+  "generatedAt": "2025-09-05T17:13:51.034Z",
   "characters": [
     {
       "image": "./SWC_youtube_project/citrus.png",
@@ -14,16 +14,6 @@
           "title": ""
         }
       ]
-    },
-    {
-      "image": "./SWC_youtube_project/icon_burger_mono.svg",
-      "alt": "icon_burger_mono",
-      "videos": []
-    },
-    {
-      "image": "./SWC_youtube_project/icon_burger.svg",
-      "alt": "icon_burger",
-      "videos": []
     },
     {
       "image": "./SWC_youtube_project/kaoru.png",
