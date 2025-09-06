@@ -1,3 +1,6 @@
+## 公開URL (Live Site)
+https://kunikunini.github.io/sloth-youtube/
+
 このディレクトリに入れた画像が、自動的にヘッダーおよびグリッドのキャラクターとして表示されます。
 
 自動生成:
