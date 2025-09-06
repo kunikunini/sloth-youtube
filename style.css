@@ -52,6 +52,18 @@ body::before {
   opacity: 0.7;
 }
 
+/* Mobile: avoid over-zoom/cropping of header background */
+@media (max-width: 560px) {
+  .site-header::before {
+    background-size: contain; /* show full image within header width */
+    background-position: center top;
+    transform: none; /* prevent extra crop after blur */
+    filter: blur(4px) saturate(115%);
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+}
+
 .brand {
   display: flex;
   align-items: center;
@@ -70,12 +82,27 @@ body::before {
   gap: 18px;
   animation: scroll 22s linear infinite;
 }
+
 .slider:hover .slider-track { animation-play-state: paused; }
 
 @keyframes scroll {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
 }
+
+/* Mobile: enable native swipe scrolling, disable auto animation */
+@media (hover: none) and (pointer: coarse) {
+  .slider-inner {
+    overflow-x: auto; overflow-y: hidden;
+    -ms-overflow-style: none; /* IE/Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+  .slider-inner::-webkit-scrollbar { display: none; }
+  .slider-track { animation: none; }
+}
+
+/* Slider arrows (desktop only by default) */
+/* removed slider-nav buttons for stability */
 
 .char-pill {
   width: 72px;

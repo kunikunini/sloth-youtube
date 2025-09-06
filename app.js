@@ -3,6 +3,14 @@
 let CURRENT_CHARACTER = null;
 let CURRENT_VIDEO_ID = null;
 
+// Assets that should not appear in the grid
+function isHiddenFromGrid(item) {
+  const p = String(item?.image || item?.src || '');
+  const base = p.split('/').pop().toLowerCase();
+  // Exclude the specific logo image from grid cards
+  return base.includes('けんすうスピークロゴ');
+}
+
 async function loadManifest() {
   // Prefer folder-based manifest
   try {
@@ -248,8 +256,9 @@ document.addEventListener('DOMContentLoaded', async () => {
       return p.includes('kensuu');
     });
     buildChannelHero(hero);
-    // Exclude hero from grid, but keep in slider
-    const forGrid = hero ? characters.filter((c) => (c.image || c.src) !== (hero.image || hero.src)) : characters;
+    // Exclude hero from grid and explicitly hide certain assets (e.g., logo)
+    const forGridBase = hero ? characters.filter((c) => (c.image || c.src) !== (hero.image || hero.src)) : characters;
+    const forGrid = forGridBase.filter((c) => !isHiddenFromGrid(c));
     buildSlider(characters);
     buildCharacterGrid(forGrid);
     wireModal();
@@ -273,6 +282,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.error(e);
   }
 });
+
+// (Reverted) No JS slider interactions; CSS handles marquee animation for stability.
 
 function setFaviconFromImage(src) {
   const link = document.getElementById('site-favicon') || (() => {
