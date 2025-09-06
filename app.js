@@ -3,12 +3,23 @@
 let CURRENT_CHARACTER = null;
 let CURRENT_VIDEO_ID = null;
 
-// Assets that should not appear in the grid
+// Assets that should not appear in UI (grid/slider)
+function normalizeJa(s) {
+  try {
+    return String(s || '')
+      .normalize('NFKD')
+      .replace(/[\u0300-\u036f\u3099-\u309c]/g, '') // strip combining marks incl. dakuten/handakuten
+      .toLowerCase();
+  } catch (_) {
+    return String(s || '').toLowerCase();
+  }
+}
 function isHiddenFromGrid(item) {
   const p = String(item?.image || item?.src || '');
-  const base = p.split('/').pop().toLowerCase();
-  // Exclude the specific logo image from grid cards
-  return base.includes('けんすうスピークロゴ');
+  const base = p.split('/').pop();
+  const nb = normalizeJa(base);
+  const target = normalizeJa('けんすうスピークロゴ');
+  return nb.includes(target);
 }
 
 async function loadManifest() {
@@ -40,7 +51,8 @@ function buildSlider(characters) {
   if (!track) return;
   track.innerHTML = '';
 
-  const sequence = [...characters];
+  // Exclude hidden assets (e.g., ロゴ画像)
+  const sequence = [...(characters || [])].filter((c) => !isHiddenFromGrid(c));
   const list = sequence.length ? [...sequence, ...sequence] : [];
 
   if (!list.length) {
