@@ -37,7 +37,7 @@ body::before {
   backdrop-filter: saturate(120%) blur(6px);
   background-color: rgba(244, 240, 232, 0.9);
   border-bottom: 1px solid rgba(0,0,0,0.06);
-  overflow: hidden;
+  overflow: visible; /* スライダーの上下アニメを切らない */
 }
 .site-header::before {
   content: "";
@@ -56,18 +56,19 @@ body::before {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 14px 18px 8px;
+  padding: 14px 18px 20px; /* 下側の余白を増やし、スライダー上のスペースを確保 */
 }
 .brand-logo { height: 28px; width: auto; display: block; }
+.brand-logo { cursor: pointer; }
 
 /* Character slider */
-.slider { overflow: hidden; padding: 10px 0 14px; }
-.slider-inner { mask-image: linear-gradient(to right, transparent 0, black 8%, black 92%, transparent 100%); }
+.slider { overflow: visible; padding: 40px 0 40px; }
+.slider-inner { mask-image: linear-gradient(to right, transparent 0, black 8%, black 92%, transparent 100%); padding: 6px 0; }
 .slider-track {
   display: flex;
   align-items: center;
   gap: 18px;
-  animation: scroll 36s linear infinite;
+  animation: scroll 22s linear infinite;
 }
 .slider:hover .slider-track { animation-play-state: paused; }
 
@@ -85,6 +86,18 @@ body::before {
   box-shadow: var(--shadow);
   flex: 0 0 auto;
   cursor: pointer;
+  will-change: transform, filter;
+  animation: floaty 3.6s ease-in-out infinite;
+}
+
+/* ふわふわ浮遊感（位相をずらして自然に） */
+.char-pill:nth-child(3n) { animation-duration: 3.2s; animation-delay: 0.1s; }
+.char-pill:nth-child(4n) { animation-duration: 3.8s; animation-delay: 0.25s; }
+.char-pill:nth-child(5n) { animation-duration: 4.2s; animation-delay: 0.4s; }
+@keyframes floaty {
+  0% { transform: translateY(0) scale(1); filter: drop-shadow(0 0 0 rgba(0,0,0,0)); }
+  50% { transform: translateY(-6px) scale(1.02); filter: drop-shadow(0 6px 8px rgba(0,0,0,0.10)); }
+  100% { transform: translateY(0) scale(1); filter: drop-shadow(0 0 0 rgba(0,0,0,0)); }
 }
 
 .container { max-width: 1120px; margin: 0 auto; padding: calc(var(--header-h, 120px) + 42px) 24px 96px; }
@@ -362,7 +375,7 @@ body::before {
 #hamburger {
   position: fixed;
   right: 16px;
-  top: calc(var(--header-h, 80px) + 8px);
+  top: 12px; /* ヘッダー右上に固定配置 */
   width: 44px; height: 44px;
   border-radius: 14px;
   border: 0;
@@ -389,7 +402,7 @@ body::before {
 
 .menu-panel {
   position: fixed; right: 16px;
-  top: calc(var(--header-h, 80px) + 60px);
+  top: calc(12px + 44px + 8px); /* ハンバーガー直下（top + 高さ + 余白） */
   width: min(280px, calc(100vw - 32px));
   background: linear-gradient(180deg, #ffffff, #fff9);
   border: 1px solid rgba(0,0,0,0.08);
@@ -436,8 +449,27 @@ body::before {
   max-width: 1120px; margin: 0 auto; padding: 32px 24px; text-align: center;
   backdrop-filter: blur(2px);
 }
-.footer-nav { display: flex; flex-wrap: wrap; gap: 10px 16px; justify-content: center; margin-bottom: 8px; }
-.footer-nav a { color: var(--ink); text-decoration: none; padding: 8px 10px; border-radius: 10px; background: rgba(255,255,255,0.8); border: 1px solid rgba(0,0,0,0.06); }
+.footer-nav {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, max-content));
+  justify-content: center;
+  gap: 10px 14px;
+  margin-bottom: 8px;
+  max-width: min(92vw, 760px);
+  margin-inline: auto;
+  padding: 0 8px;
+}
+.footer-nav a {
+  color: var(--ink);
+  text-decoration: none;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.85);
+  border: 1px solid rgba(0,0,0,0.06);
+  font-size: 14px;
+  text-align: center;
+  line-height: 1.3;
+}
 .footer-nav a:hover { background: rgba(255,255,255,1); }
 .copy { text-align: center; color: var(--muted); font-size: 12px; }
 .project {
@@ -457,3 +489,36 @@ body::before {
 .project ul { margin: 8px 0 8px 20px; padding: 0; }
 .project li { line-height: 1.8; }
 .project a { color: var(--accent); font-weight: 700; text-decoration: underline; }
+
+/* Footer responsiveness: 小さい画面でボタンがはみ出さないように */
+@media (max-width: 560px) {
+  .footer-nav { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 10px; max-width: 96vw; }
+  .footer-nav a { font-size: 13px; padding: 8px 10px; }
+}
+
+/* Mini Player */
+.mini-player {
+  position: fixed;
+  right: 16px; bottom: 16px;
+  z-index: 1200;
+  width: clamp(240px, 38vw, 360px);
+  aspect-ratio: 16 / 9;
+  display: none;
+}
+.mini-player[aria-hidden="false"] { display: block; }
+.mini-player-inner {
+  position: relative;
+  width: 100%; height: 100%;
+  background: #000;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.28), 0 4px 10px rgba(0,0,0,0.16);
+}
+#mini-frame { width: 100%; height: 100%; display: block; }
+.mini-close {
+  position: absolute; right: 6px; top: 2px;
+  width: 28px; height: 28px;
+  border-radius: 50%; border: 0; cursor: pointer;
+  color: #fff; background: rgba(0,0,0,0.45);
+}
+.mini-close:hover { background: rgba(0,0,0,0.65); }

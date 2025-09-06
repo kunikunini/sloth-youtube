@@ -74,7 +74,16 @@ function buildChannelHero(heroCharacter) {
 
   const thumb = document.createElement('div');
   thumb.className = 'hero-thumb';
-  thumb.style.backgroundImage = `url('${heroCharacter.image || heroCharacter.src}')`;
+  // ヒーロー画像を「けんすうスピークロゴ.png」に差し替え（存在しない場合は従来画像にフォールバック）
+  const preferredHero = './SWC_youtube_project/けんすうスピークロゴ.png';
+  try {
+    const probe = new Image();
+    probe.onload = () => { thumb.style.backgroundImage = `url('${preferredHero}')`; };
+    probe.onerror = () => { thumb.style.backgroundImage = `url('${heroCharacter.image || heroCharacter.src}')`; };
+    probe.src = preferredHero;
+  } catch (_) {
+    thumb.style.backgroundImage = `url('${heroCharacter.image || heroCharacter.src}')`;
+  }
 
   const overlay = document.createElement('div');
   overlay.className = 'hero-overlay';
@@ -257,6 +266,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // Hamburger menu interactions
     setupHamburger();
+
+    // Header brand logo -> open mini player
+    setupMiniPlayerTrigger();
   } catch (e) {
     console.error(e);
   }
@@ -416,4 +428,62 @@ function applyDominantColor(element, imageUrl) {
     };
     img.src = imageUrl;
   } catch {}
+}
+
+// --- Mini Player ---
+function parseYouTubeId(input) {
+  if (!input) return '';
+  const str = String(input).trim();
+  if (/^[A-Za-z0-9_-]{11}$/.test(str)) return str;
+  try {
+    const u = new URL(str);
+    if (u.hostname === 'youtu.be') return u.pathname.replace(/^\//, '').slice(0, 11);
+    if (u.hostname.includes('youtube.com')) {
+      if (u.pathname.startsWith('/watch')) return u.searchParams.get('v') || '';
+      if (u.pathname.startsWith('/shorts/')) return u.pathname.split('/')[2] || '';
+      const parts = u.pathname.split('/');
+      const idx = parts.indexOf('embed');
+      if (idx !== -1 && parts[idx + 1]) return parts[idx + 1];
+    }
+  } catch {}
+  return '';
+}
+
+function openMiniPlayer(video) {
+  const wrap = document.getElementById('mini-player');
+  const frame = document.getElementById('mini-frame');
+  if (!wrap || !frame) return;
+  const id = parseYouTubeId(video);
+  if (!id) return;
+  frame.src = `https://www.youtube.com/embed/${id}?autoplay=1&rel=0&modestbranding=1`;
+  wrap.setAttribute('aria-hidden', 'false');
+}
+
+function closeMiniPlayer() {
+  const wrap = document.getElementById('mini-player');
+  const frame = document.getElementById('mini-frame');
+  if (!wrap || !frame) return;
+  wrap.setAttribute('aria-hidden', 'true');
+  frame.src = '';
+}
+
+function setupMiniPlayerTrigger() {
+  const logo = document.getElementById('brand-logo');
+  if (!logo) return;
+  logo.style.cursor = 'pointer';
+  const configured = logo.getAttribute('data-video') || '';
+  const onClick = (e) => {
+    e.preventDefault();
+    if (configured) {
+      openMiniPlayer(configured);
+    } else if (CURRENT_VIDEO_ID) {
+      // fallback: 現在の選択動画または最初の動画があれば再生
+      openMiniPlayer(CURRENT_VIDEO_ID);
+    } else {
+      console.warn('brand-logo に data-video が設定されていません。');
+    }
+  };
+  logo.addEventListener('click', onClick);
+  document.getElementById('mini-close')?.addEventListener('click', closeMiniPlayer);
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMiniPlayer(); });
 }

@@ -16,7 +16,7 @@
   <body>
     <header class="site-header">
       <div class="brand">
-        <img class="brand-logo" src="./SWC_youtube_project/sloth_logo.svg" alt="SLOTH" />
+        <img class="brand-logo" id="brand-logo" src="./SWC_youtube_project/sloth_logo.svg" alt="SLOTH" data-video="https://youtu.be/NSYs0DvlLek?si=XYJvQpkUM5_eKSX7" />
       </div>
 
       <div class="slider" id="character-slider" aria-label="登場キャラクター">
@@ -97,6 +97,14 @@
           <iframe id="player-frame" title="YouTube video player" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
         <div class="playlist" id="playlist" aria-label="キャラクターの動画一覧"></div>
+      </div>
+    </div>
+
+    <!-- Mini Player (corner) -->
+    <div class="mini-player" id="mini-player" aria-hidden="true" role="dialog" aria-label="ミニプレイヤー">
+      <div class="mini-player-inner">
+        <button class="mini-close" id="mini-close" aria-label="閉じる">×</button>
+        <iframe id="mini-frame" title="YouTube mini player" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture; web-share" allowfullscreen></iframe>
       </div>
     </div>
 
