@@ -52,7 +52,7 @@ body::before {
   opacity: 0.7;
 }
 
-/* Mobile: avoid over-zoom/cropping of header background */
+/* Mobile: avoid over-zoom/cropping of header and page background */
 @media (max-width: 560px) {
   .site-header::before {
     background-size: contain; /* show full image within header width */
@@ -61,6 +61,33 @@ body::before {
     filter: blur(4px) saturate(115%);
     mask-image: none;
     -webkit-mask-image: none;
+  }
+
+  /* Make body background image fully visible on phones */
+  body::before {
+    background-size: contain; /* fit entire image in viewport */
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-attachment: scroll; /* avoid iOS zoom/crop with fixed */
+  }
+}
+
+/* Touch devices (incl. wide phones/tablets): apply same safe background rules */
+@media (hover: none) and (pointer: coarse) {
+  .site-header::before {
+    background-size: contain;
+    background-position: center top;
+    transform: none;
+    filter: blur(4px) saturate(115%);
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+
+  body::before {
+    background-size: contain;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
   }
 }
 
