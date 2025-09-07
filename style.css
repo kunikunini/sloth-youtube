@@ -240,6 +240,9 @@ body::before {
   box-shadow: var(--shadow);
   isolation: isolate;
   transition: transform 160ms ease, box-shadow 160ms ease;
+  /* Reduce initial rendering cost for offscreen cards */
+  content-visibility: auto;
+  contain-intrinsic-size: 320px 380px; /* approximate card footprint */
 }
 
 .thumb, .char-thumb {
@@ -249,6 +252,10 @@ body::before {
   transition: transform 220ms ease;
   background-blend-mode: multiply; /* allow tinting with background-color */
 }
+
+/* Lazy background: fade in once loaded */
+.lazy-bg { filter: saturate(96%) brightness(0.98); }
+.lazy-bg.is-loaded { transition: filter 200ms ease; filter: none; }
 
 .thumb::after { /* subtle overlay */
   content: "";

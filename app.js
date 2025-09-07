@@ -67,7 +67,9 @@ function buildSlider(characters) {
   list.forEach((c, i) => {
     const d = document.createElement('div');
     d.className = 'char-pill';
-    d.style.backgroundImage = `url(${c.image || c.src})`;
+    // Lazy-load background when visible
+    d.classList.add('lazy-bg');
+    d.dataset.bg = c.image || c.src;
     d.setAttribute('role', 'img');
     d.setAttribute('aria-label', c.alt || `character ${i + 1}`);
     const slug = slugFromImage(c.image || c.src);
@@ -158,8 +160,9 @@ function buildCharacterGrid(characters) {
     card.setAttribute('aria-label', `${c.alt || 'character'} の動画を開く`);
 
     const thumb = document.createElement('div');
-    thumb.className = 'char-thumb';
-    thumb.style.backgroundImage = `url('${c.image}')`;
+    thumb.className = 'char-thumb lazy-bg';
+    // Lazy-load the thumbnail background image
+    thumb.dataset.bg = c.image;
 
     const overlay = document.createElement('div');
     overlay.className = 'overlay';
@@ -189,8 +192,7 @@ function buildCharacterGrid(characters) {
 
     root.appendChild(card);
 
-    // Tint the thumbnail with the dominant color of the image
-    applyDominantColor(thumb, c.image);
+    // Dominant color will be applied after the image is loaded lazily
   });
 }
 
@@ -273,6 +275,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const forGrid = forGridBase.filter((c) => !isHiddenFromGrid(c));
     buildSlider(characters);
     buildCharacterGrid(forGrid);
+    setupLazyBackgrounds();
     wireModal();
 
     // Generate compressed favicon from kuni_2.png
@@ -451,6 +454,55 @@ function applyDominantColor(element, imageUrl) {
     };
     img.src = imageUrl;
   } catch {}
+}
+
+// Lazy-load background images for elements with data-bg
+function setupLazyBackgrounds() {
+  const loadBg = (el) => {
+    const src = el?.dataset?.bg;
+    if (!src) return;
+    const img = new Image();
+    img.crossOrigin = 'anonymous';
+    const apply = () => {
+      // Apply background and mark loaded
+      el.style.backgroundImage = `url('${src}')`;
+      el.classList.add('is-loaded');
+      // Apply dominant color tint after load for char thumbs only
+      if (el.classList.contains('char-thumb')) {
+        // Defer to idle time to avoid blocking rendering
+        const run = () => applyDominantColor(el, src);
+        if ('requestIdleCallback' in window) requestIdleCallback(run, { timeout: 500 });
+        else setTimeout(run, 0);
+      }
+      delete el.dataset.bg;
+    };
+    // Prefer decode() when available to avoid jank
+    img.onload = () => {
+      if (img.decode) {
+        img.decode().then(apply).catch(apply);
+      } else {
+        apply();
+      }
+    };
+    img.onerror = () => { delete el.dataset.bg; };
+    img.src = src;
+  };
+
+  const targets = Array.from(document.querySelectorAll('[data-bg]'));
+  if (!('IntersectionObserver' in window)) {
+    targets.forEach(loadBg);
+    return;
+  }
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting || entry.intersectionRatio > 0) {
+        const el = entry.target;
+        io.unobserve(el);
+        loadBg(el);
+      }
+    });
+  }, { root: null, rootMargin: '200px 0px', threshold: 0.01 });
+  targets.forEach((t) => io.observe(t));
 }
 
 // --- Mini Player ---
