@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2025-09-10T15:00:41.402Z",
+  "generatedAt": "2025-09-10T15:18:59.524Z",
   "characters": [
     {
       "image": "./SWC_youtube_project/citrus.png",
@@ -202,7 +202,12 @@
     {
       "image": "./SWC_youtube_project/takakisi.png",
       "alt": "takakisi",
-      "videos": []
+      "videos": [
+        {
+          "id": "SBYnylUBrEU",
+          "title": ""
+        }
+      ]
     },
     {
       "image": "./SWC_youtube_project/wa-papa_1.png",
