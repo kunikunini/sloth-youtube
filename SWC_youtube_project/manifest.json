@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2025-09-10T15:18:59.524Z",
+  "generatedAt": "2025-10-10T23:57:21.087Z",
   "characters": [
     {
       "image": "./SWC_youtube_project/citrus.png",
@@ -141,7 +141,12 @@
     {
       "image": "./SWC_youtube_project/mottyan_3.png",
       "alt": "mottyan_3",
-      "videos": []
+      "videos": [
+        {
+          "id": "I5_wWniINOE",
+          "title": ""
+        }
+      ]
     },
     {
       "image": "./SWC_youtube_project/noma.png",
