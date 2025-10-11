@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2025-10-10T23:57:21.087Z",
+  "generatedAt": "2025-10-11T00:05:02.746Z",
   "characters": [
     {
       "image": "./SWC_youtube_project/citrus.png",
@@ -18,7 +18,12 @@
     {
       "image": "./SWC_youtube_project/kaori.png",
       "alt": "kaori",
-      "videos": []
+      "videos": [
+        {
+          "id": "JLUxuMahEV0",
+          "title": ""
+        }
+      ]
     },
     {
       "image": "./SWC_youtube_project/kaoru.png",
