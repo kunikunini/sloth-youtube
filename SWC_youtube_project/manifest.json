@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2025-10-11T00:05:02.746Z",
+  "generatedAt": "2025-10-16T14:51:35.472Z",
   "characters": [
     {
       "image": "./SWC_youtube_project/citrus.png",
@@ -236,7 +236,12 @@
     {
       "image": "./SWC_youtube_project/wa-papa_2.png",
       "alt": "wa-papa_2",
-      "videos": []
+      "videos": [
+        {
+          "id": "M37EFlnkOoE",
+          "title": ""
+        }
+      ]
     },
     {
       "image": "./SWC_youtube_project/zaipen_1.png",
