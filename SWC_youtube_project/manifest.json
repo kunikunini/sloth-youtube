@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2025-10-16T14:51:35.472Z",
+  "generatedAt": "2025-11-27T16:17:17.938Z",
   "characters": [
     {
       "image": "./SWC_youtube_project/citrus.png",
@@ -11,6 +11,16 @@
         },
         {
           "id": "0QRiWfjwSP8",
+          "title": ""
+        }
+      ]
+    },
+    {
+      "image": "./SWC_youtube_project/ka-gu.jpg",
+      "alt": "ka-gu",
+      "videos": [
+        {
+          "id": "wXpY6YV36io",
           "title": ""
         }
       ]
@@ -141,7 +151,12 @@
     {
       "image": "./SWC_youtube_project/mottyan_2.png",
       "alt": "mottyan_2",
-      "videos": []
+      "videos": [
+        {
+          "id": "TFlU-lslIQ0",
+          "title": ""
+        }
+      ]
     },
     {
       "image": "./SWC_youtube_project/mottyan_3.png",
@@ -205,6 +220,10 @@
         },
         {
           "id": "vfIhLImt5Yw",
+          "title": ""
+        },
+        {
+          "id": "tC7fA-Aksxk",
           "title": ""
         }
       ]
