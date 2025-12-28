@@ -1,10 +1,19 @@
 {
-  "generatedAt": "2025-12-28T12:11:03.156Z",
+  "generatedAt": "2025-12-28T12:17:07.901Z",
   "characters": [
     {
       "image": "./SWC_youtube_project/citrus.png",
       "alt": "citrus",
-      "videos": []
+      "videos": [
+        {
+          "id": "WrcpjzW97Dc",
+          "title": ""
+        },
+        {
+          "id": "0QRiWfjwSP8",
+          "title": ""
+        }
+      ]
     },
     {
       "image": "./SWC_youtube_project/ka-gu.jpg",
@@ -29,7 +38,16 @@
     {
       "image": "./SWC_youtube_project/kaoru.png",
       "alt": "kaoru",
-      "videos": []
+      "videos": [
+        {
+          "id": "WrcpjzW97Dc",
+          "title": ""
+        },
+        {
+          "id": "ZaVzKepQCiM",
+          "title": ""
+        }
+      ]
     },
     {
       "image": "./SWC_youtube_project/kensuu.png",
@@ -39,37 +57,96 @@
     {
       "image": "./SWC_youtube_project/kitashige.png",
       "alt": "kitashige",
-      "videos": []
+      "videos": [
+        {
+          "id": "WrcpjzW97Dc",
+          "title": ""
+        },
+        {
+          "id": "e5_QKi7OvdI",
+          "title": ""
+        }
+      ]
     },
     {
       "image": "./SWC_youtube_project/koyama.png",
       "alt": "koyama",
-      "videos": []
+      "videos": [
+        {
+          "id": "WrcpjzW97Dc",
+          "title": ""
+        },
+        {
+          "id": "vfIhLImt5Yw",
+          "title": ""
+        },
+        {
+          "id": "nQ0o_CZuWzg",
+          "title": ""
+        }
+      ]
     },
     {
       "image": "./SWC_youtube_project/kuni_1.png",
       "alt": "kuni_1",
-      "videos": []
+      "videos": [
+        {
+          "id": "rKC-AlW45CA",
+          "title": ""
+        },
+        {
+          "id": "xPKkIITs5Rk",
+          "title": ""
+        }
+      ]
     },
     {
       "image": "./SWC_youtube_project/kuni_2.png",
       "alt": "kuni_2",
-      "videos": []
+      "videos": [
+        {
+          "id": "xPKkIITs5Rk",
+          "title": ""
+        }
+      ]
     },
     {
       "image": "./SWC_youtube_project/kuni_3.png",
       "alt": "kuni_3",
-      "videos": []
+      "videos": [
+        {
+          "id": "xPKkIITs5Rk",
+          "title": ""
+        }
+      ]
     },
     {
       "image": "./SWC_youtube_project/maki.png",
       "alt": "maki",
-      "videos": []
+      "videos": [
+        {
+          "id": "WrcpjzW97Dc",
+          "title": ""
+        },
+        {
+          "id": "Dq87fbMhRns",
+          "title": ""
+        }
+      ]
     },
     {
       "image": "./SWC_youtube_project/mottyan_1.png",
       "alt": "mottyan_1",
-      "videos": []
+      "videos": [
+        {
+          "id": "WrcpjzW97Dc",
+          "title": ""
+        },
+        {
+          "id": "A3AdqtYUlRw",
+          "title": ""
+        }
+      ]
     },
     {
       "image": "./SWC_youtube_project/mottyan_2.png",
@@ -98,12 +175,30 @@
     {
       "image": "./SWC_youtube_project/noma.png",
       "alt": "noma",
-      "videos": []
+      "videos": [
+        {
+          "id": "WrcpjzW97Dc",
+          "title": ""
+        },
+        {
+          "id": "p9OJ2MKfTsY",
+          "title": ""
+        }
+      ]
     },
     {
       "image": "./SWC_youtube_project/raiti.png",
       "alt": "raiti",
-      "videos": []
+      "videos": [
+        {
+          "id": "WrcpjzW97Dc",
+          "title": ""
+        },
+        {
+          "id": "9NY0I4xf1Z4",
+          "title": ""
+        }
+      ]
     },
     {
       "image": "./SWC_youtube_project/Ryotaro.png",
@@ -119,6 +214,14 @@
       "image": "./SWC_youtube_project/shinizok.png",
       "alt": "shinizok",
       "videos": [
+        {
+          "id": "WrcpjzW97Dc",
+          "title": ""
+        },
+        {
+          "id": "vfIhLImt5Yw",
+          "title": ""
+        },
         {
           "id": "tC7fA-Aksxk",
           "title": ""
@@ -138,7 +241,16 @@
     {
       "image": "./SWC_youtube_project/wa-papa_1.png",
       "alt": "wa-papa_1",
-      "videos": []
+      "videos": [
+        {
+          "id": "WrcpjzW97Dc",
+          "title": ""
+        },
+        {
+          "id": "ynlayZQdMHM",
+          "title": ""
+        }
+      ]
     },
     {
       "image": "./SWC_youtube_project/wa-papa_2.png",
@@ -153,7 +265,16 @@
     {
       "image": "./SWC_youtube_project/zaipen_1.png",
       "alt": "zaipen_1",
-      "videos": []
+      "videos": [
+        {
+          "id": "WrcpjzW97Dc",
+          "title": ""
+        },
+        {
+          "id": "g5VDoTh0UNc",
+          "title": ""
+        }
+      ]
     },
     {
       "image": "./SWC_youtube_project/zaipen_2.png",
@@ -169,6 +290,10 @@
       "image": "./SWC_youtube_project/zaipen_3.png",
       "alt": "zaipen_3",
       "videos": [
+        {
+          "id": "WrcpjzW97Dc",
+          "title": ""
+        },
         {
           "id": "MMV_LIE-IfA",
           "title": ""
