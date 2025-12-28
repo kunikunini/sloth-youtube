@@ -511,18 +511,27 @@ body::before {
 
 .modal-close {
   position: absolute;
-  right: 8px;
-  top: 6px;
-  font-size: 28px;
-  line-height: 1;
-  border: 0;
-  background: transparent;
+  right: 12px;
+  top: 12px;
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  font-size: 24px;
+  color: var(--ink);
   cursor: pointer;
-  color: var(--muted);
+  z-index: 100;
+  transition: background 0.2s, transform 0.2s;
 }
 
 .modal-close:hover {
-  color: var(--ink);
+  background: #fff;
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
 }
 
 .player-wrap {
@@ -531,6 +540,8 @@ body::before {
   background: #000;
   flex-shrink: 0;
   position: relative;
+  max-height: 45vh;
+  /* プレイヤーを画面の半分以下に抑える */
 }
 
 .player-placeholder {
@@ -569,11 +580,24 @@ body::before {
 
 .playlist {
   border-top: 1px solid rgba(0, 0, 0, 0.06);
-  padding: 8px 10px;
+  padding: 12px;
   flex: 1;
-  /* 残りのスペースを常時占有 */
+  min-height: 250px;
+  /* プレイリストエリアを広く確保 */
   overflow-y: auto;
   background: #faf9f7;
+}
+
+/* Mobile specific modal adjustments */
+@media (max-width: 560px) {
+  .player-wrap {
+    max-height: 35vh;
+    /* スマホでは動画をさらに小さくしてリストを広げる */
+  }
+
+  .playlist {
+    min-height: 300px;
+  }
 }
 
 .playlist .item {
