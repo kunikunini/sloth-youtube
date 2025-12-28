@@ -1,14 +1,10 @@
 {
-  "generatedAt": "2025-12-28T04:11:28.023Z",
+  "generatedAt": "2025-12-28T07:36:30.964Z",
   "characters": [
     {
       "image": "./SWC_youtube_project/citrus.png",
       "alt": "citrus",
       "videos": [
-        {
-          "id": "WrcpjzW97Dc",
-          "title": ""
-        },
         {
           "id": "0QRiWfjwSP8",
           "title": ""
@@ -40,10 +36,6 @@
       "alt": "kaoru",
       "videos": [
         {
-          "id": "WrcpjzW97Dc",
-          "title": ""
-        },
-        {
           "id": "ZaVzKepQCiM",
           "title": ""
         }
@@ -59,10 +51,6 @@
       "alt": "kitashige",
       "videos": [
         {
-          "id": "WrcpjzW97Dc",
-          "title": ""
-        },
-        {
           "id": "e5_QKi7OvdI",
           "title": ""
         }
@@ -72,14 +60,6 @@
       "image": "./SWC_youtube_project/koyama.png",
       "alt": "koyama",
       "videos": [
-        {
-          "id": "WrcpjzW97Dc",
-          "title": ""
-        },
-        {
-          "id": "vfIhLImt5Yw",
-          "title": ""
-        },
         {
           "id": "nQ0o_CZuWzg",
           "title": ""
@@ -125,10 +105,6 @@
       "alt": "maki",
       "videos": [
         {
-          "id": "WrcpjzW97Dc",
-          "title": ""
-        },
-        {
           "id": "Dq87fbMhRns",
           "title": ""
         }
@@ -138,10 +114,6 @@
       "image": "./SWC_youtube_project/mottyan_1.png",
       "alt": "mottyan_1",
       "videos": [
-        {
-          "id": "WrcpjzW97Dc",
-          "title": ""
-        },
         {
           "id": "A3AdqtYUlRw",
           "title": ""
@@ -177,10 +149,6 @@
       "alt": "noma",
       "videos": [
         {
-          "id": "WrcpjzW97Dc",
-          "title": ""
-        },
-        {
           "id": "p9OJ2MKfTsY",
           "title": ""
         }
@@ -190,10 +158,6 @@
       "image": "./SWC_youtube_project/raiti.png",
       "alt": "raiti",
       "videos": [
-        {
-          "id": "WrcpjzW97Dc",
-          "title": ""
-        },
         {
           "id": "9NY0I4xf1Z4",
           "title": ""
@@ -205,14 +169,6 @@
       "alt": "Ryotaro",
       "videos": [
         {
-          "id": "WrcpjzW97Dc",
-          "title": ""
-        },
-        {
-          "id": "vfIhLImt5Yw",
-          "title": ""
-        },
-        {
           "id": "zBO1RB78fuA",
           "title": ""
         }
@@ -222,14 +178,6 @@
       "image": "./SWC_youtube_project/shinizok.png",
       "alt": "shinizok",
       "videos": [
-        {
-          "id": "WrcpjzW97Dc",
-          "title": ""
-        },
-        {
-          "id": "vfIhLImt5Yw",
-          "title": ""
-        },
         {
           "id": "tC7fA-Aksxk",
           "title": ""
@@ -251,10 +199,6 @@
       "alt": "wa-papa_1",
       "videos": [
         {
-          "id": "WrcpjzW97Dc",
-          "title": ""
-        },
-        {
           "id": "ynlayZQdMHM",
           "title": ""
         }
@@ -275,10 +219,6 @@
       "alt": "zaipen_1",
       "videos": [
         {
-          "id": "WrcpjzW97Dc",
-          "title": ""
-        },
-        {
           "id": "g5VDoTh0UNc",
           "title": ""
         }
@@ -298,10 +238,6 @@
       "image": "./SWC_youtube_project/zaipen_3.png",
       "alt": "zaipen_3",
       "videos": [
-        {
-          "id": "WrcpjzW97Dc",
-          "title": ""
-        },
         {
           "id": "MMV_LIE-IfA",
           "title": ""
