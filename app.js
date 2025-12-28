@@ -30,7 +30,7 @@ async function loadManifest() {
       const data = await res.json();
       if (Array.isArray(data.characters)) return data.characters;
     }
-  } catch (_) {}
+  } catch (_) { }
 
   // Fallback to legacy data.js
   if (typeof CHARACTERS !== 'undefined') {
@@ -123,7 +123,9 @@ function openModal(videoId) {
   const modal = document.getElementById('player-modal');
   const frame = document.getElementById('player-frame');
   if (!modal || !frame) return;
-  frame.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`;
+  if (videoId) {
+    frame.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`;
+  }
   modal.setAttribute('aria-hidden', 'false');
   document.body.style.overflow = 'hidden';
 }
@@ -198,17 +200,16 @@ function buildCharacterGrid(characters) {
 
 function openCharacter(character) {
   CURRENT_CHARACTER = character;
-  const first = character.videos && character.videos[0];
-  if (first) {
-    CURRENT_VIDEO_ID = first.id;
-    openModal(first.id);
-  } else {
-    const modal = document.getElementById('player-modal');
-    const frame = document.getElementById('player-frame');
-    frame.src = '';
+  CURRENT_VIDEO_ID = null; // Reset selection
+
+  const modal = document.getElementById('player-modal');
+  const frame = document.getElementById('player-frame');
+  if (modal && frame) {
+    frame.src = ''; // Clear player
     modal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
   }
+
   renderPlaylist(character);
 }
 
@@ -367,7 +368,7 @@ function updateHeaderHeight() {
 
 function throttle(fn, ms) {
   let t = 0;
-  return function(...args) {
+  return function (...args) {
     const now = Date.now();
     if (now - t > ms) { t = now; fn.apply(this, args); }
   };
@@ -453,7 +454,7 @@ function applyDominantColor(element, imageUrl) {
       element.style.backgroundColor = `rgba(${r}, ${g}, ${b}, 0.22)`;
     };
     img.src = imageUrl;
-  } catch {}
+  } catch { }
 }
 
 // Lazy-load background images for elements with data-bg
@@ -520,7 +521,7 @@ function parseYouTubeId(input) {
       const idx = parts.indexOf('embed');
       if (idx !== -1 && parts[idx + 1]) return parts[idx + 1];
     }
-  } catch {}
+  } catch { }
   return '';
 }
 
