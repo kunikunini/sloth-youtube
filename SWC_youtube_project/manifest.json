@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2025-12-28T12:17:07.901Z",
+  "generatedAt": "2025-12-28T12:33:12.671Z",
   "characters": [
     {
       "image": "./SWC_youtube_project/citrus.png",
@@ -204,6 +204,14 @@
       "image": "./SWC_youtube_project/Ryotaro.png",
       "alt": "Ryotaro",
       "videos": [
+        {
+          "id": "WrcpjzW97Dc",
+          "title": ""
+        },
+        {
+          "id": "vfIhLImt5Yw",
+          "title": ""
+        },
         {
           "id": "zBO1RB78fuA",
           "title": ""
